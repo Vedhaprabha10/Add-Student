@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.app.Entity.Student;
 import com.example.app.Service.StudentService;
@@ -20,7 +21,7 @@ public class StudentController {
 		super();
 		this.studentservice = studentservice;
 	}
-	
+						
 	//handler method to handle list students and return mode and view
 	@GetMapping("/students")
 	public String liststudents(Model model){
@@ -35,7 +36,7 @@ public class StudentController {
 		
 	}
 	@PostMapping("/students")
-	public String saveStudent(@ModelAttribute("stuednt")Student student){
+	public String saveStudent(@ModelAttribute("student")Student student){
 		studentservice.saveStudent(student);
 		return "redirect:/students";
 		
@@ -60,14 +61,19 @@ public class StudentController {
 		studentservice.saveStudent(existingStudent);
 		return "redirect:/students";
 	}
-	@GetMapping("/students/{id}")
+	@GetMapping("/students/delete/{id}")
 	public String deleteStudent(@PathVariable Integer id) {
 		studentservice.deleteStudentById(id);
 		return "redirect:/students";
 	}
-//	@GetMapping("/students/firstname")
-//	public String firstNamePage(Model model) {
-//		model.addAttribute("student",studentservice.getByfirstname());
-//		return "index";
+	@GetMapping("/students/{firstname}")
+	public String  firstname(@PathVariable String firstname,Model model) {
+		model.addAttribute("student",studentservice.findByfirstname(firstname));
+		return "details";
+	}
+//	@GetMapping("/showStudent/{id}")
+//	public Student showStudent(@PathVariable Student id) {
+//		studentservice.findById(id);
+//		return id;
 //	}
 }

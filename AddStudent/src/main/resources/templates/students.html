@@ -52,7 +52,7 @@
 				<tr>
 					<th>Student Firstname</th>
 					<th>Student Lastname</th>
-					<th>Student Email</th>
+					<th>Student Message</th>
 					<th>Actions </th>
 				</tr>
 			</thead>
@@ -63,8 +63,8 @@
 					<td th:text="${student.Email}"></td>
 					<td>
 						<a th:href="@{/students/edit/{id}(id=${student.id})}"class=" btn btn-primary">Update</a>
-						<a th:href="@{/students/{id}(id=${student.id})}"class=" btn btn-danger">Delete</a>
-						<a th:href="@{/students/edit/{firstname}(firstname=${student.firstname})}"class=" btn btn-danger">Details</a>
+						<a th:href="@{/students/delete/{id}(id=${student.id})}"class=" btn btn-danger">Delete</a>
+						<a th:href="@{/students/{firstname}(firstname=${student.firstname})}"class=" btn btn-danger">Details</a>
 					</td>
 				</tr>
 			</tbody>

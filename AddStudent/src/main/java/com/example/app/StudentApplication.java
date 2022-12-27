@@ -1,5 +1,7 @@
 package com.example.app;
 
+import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -30,6 +32,8 @@ public class StudentApplication implements CommandLineRunner {
 		Student studentS3= new Student("Vedha", "prakash", "vedhaprakash@gmail.com");
 		repo.save(studentS3);
 		*/
+		
+	
 	}
 
 }

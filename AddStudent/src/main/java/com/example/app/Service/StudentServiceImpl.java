@@ -1,6 +1,7 @@
 package com.example.app.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -45,14 +46,12 @@ public class StudentServiceImpl implements StudentService {
 		repo.deleteById(id);
 	}
 
-//	@Override
-//	public List<Student> getByfirstname() {
-//		
-//		return repo.findAll();
-//	}
+	@Override
+	public Student findByfirstname(String firstname) {
+		
+		return repo.findByfirstname(firstname);
+	}
 
-
-
-	
 	
 }
+	

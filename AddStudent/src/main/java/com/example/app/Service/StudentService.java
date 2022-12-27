@@ -16,5 +16,5 @@ public interface StudentService {
 	
 	void deleteStudentById(Integer id);
 	
-	//List<Student> getByfirstname();
+	Student findByfirstname(String firstname);
 }
